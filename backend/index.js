@@ -2,6 +2,7 @@
 const exp=require('express');
 const app=exp();
 const path=require('path')
+const cors=require('cors')
 require('dotenv').config() 
 
 app.use(exp.static(path.join(__dirname,'../client/build')))
@@ -11,7 +12,12 @@ app.use(exp.static(path.join(__dirname,'../client/build')))
 app.use(exp.json())
 //app.use(exp.urlencoded({extended:true}))
 
-
+app.use(cors({
+    "origin": "*",
+    "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+    "preflightContinue": false,
+    "optionsSuccessStatus": 204
+  }))
 
 const mongoClient=require('mongodb').MongoClient;
 
