@@ -15,7 +15,7 @@ function Signup() {
   let [signupSuccess, setSignupSuccess] = useState(false);
 
   async function onSignUpFormSubmit(userObj) {
-    let res = await axios.post("http://localhost:4000/user-api/user", userObj);
+    let res = await axios.post("my-blog-app-coral.vercel.app/user", userObj);
     console.log(res);
     if (res.status === 201) {
       setState(true);
