@@ -12,12 +12,7 @@ app.use(exp.static(path.join(__dirname,'../client/build')))
 app.use(exp.json())
 //app.use(exp.urlencoded({extended:true}))
 
-app.use(cors({
-    "origin": "my-blog-app-frontend.vercel.app",
-    "methods": ["GET","HEAD","PUT","PATCH","POST","DELETE"],
-    "preflightContinue": false,
-    "optionsSuccessStatus": 204
-  }))
+app.use(cors())
 
 const mongoClient=require('mongodb').MongoClient;
 
